@@ -12,7 +12,7 @@ exports.getAllCategories = (req, res) => {
 
 exports.getCategoryById = (req, res) => {
   const id = req.params.id;
-  db.query(`SELECT * FROM categories WHERE id = ${id}`, (err, result) => {
+  db.query(`SELECT * FROM categories WHERE category_id = ${id}`, (err, result) => {
     if (err) {
       res.status(500).send({ message: err.message, error: err });
       return;
@@ -48,7 +48,7 @@ exports.updateCategory = (req, res) => {
     return;
   }
   db.query(
-    `UPDATE categories SET name = ${name} WHERE id = ${id}`,
+    `UPDATE categories SET name = ${name} WHERE category_id = ${id}`,
     (err, result) => {
       if (err) {
         res.status(500).send({ message: err.message, error: err });
@@ -61,7 +61,7 @@ exports.updateCategory = (req, res) => {
 
 exports.deleteCategory = (req, res) => {
   const id = req.params.id;
-  db.query(`DELETE FROM categories WHERE id = ${id}`, (err, result) => {
+  db.query(`DELETE FROM categories WHERE category_id = ${id}`, (err, result) => {
     if (err) {
       res.status(500).send({ message: err.message, error: err });
       return;
