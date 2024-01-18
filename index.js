@@ -13,7 +13,7 @@ const resetdataRouter = require('./routes/resetdata.route');
 const app = express();
 const bodyParser = require('body-parser');
 
-const base_url = process.env.BASE_URL || 'http://localhost';
+const base_url = process.env.BASE_URL || 'http://localhost:3000';
 const path = process.env.BASE_PATH || 'api';
 const port = 3000;
 
@@ -29,5 +29,5 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(port, () => {
   console.log(`API is started at: ${base_url}/${path}`);
-  console.log(`Swagger is started at: ${base_url}/api-docs`);
+  console.log(`See the document: ${base_url}/api-docs`);
 });
